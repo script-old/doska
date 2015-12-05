@@ -8,4 +8,8 @@ class User
   key :active, Boolean
   key :created, Time
   key :last_visit, Time
+  key :activate_url, String
+  
+  many :adverts
+  many :user_logins
 end
