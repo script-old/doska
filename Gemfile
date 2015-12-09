@@ -1,5 +1,7 @@
 gem 'sinatra'
 gem 'mongo_mapper'
 gem 'bson_ext'
+###### tree gem
+gem 'mongo_mapper_tree', :git => 'https://github.com/Oktavilla/mongo_mapper_tree.git'
 
 gem 'pry'
