@@ -6,7 +6,7 @@ load 'model.rb'
 def cleanDB
   User.all.map(&:delete)
   Advert.all.map(&:delete)
-  View.all.map(&:delete)
+  AdvertView.all.map(&:delete)
   UserView.all.map(&:delete)
   Category.all.map(&:delete)
   Image.all.map(&:delete)
@@ -17,6 +17,7 @@ def load_fix
   @a = Advert.new
   @i = Image.new
   @c = Category.new
+  "Ready to go!"
 end
 
 binding.pry

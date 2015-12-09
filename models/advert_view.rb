@@ -1,4 +1,4 @@
-class View
+class AdvertView
   include MongoMapper::EmbeddedDocument
   key :day_views, Integer
   key :date, Time
