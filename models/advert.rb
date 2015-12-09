@@ -7,5 +7,6 @@ class Advert
   
   belongs_to :user
   many :views
+  many :images
   belongs_to :category
 end
