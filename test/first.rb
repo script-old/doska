@@ -6,7 +6,6 @@ load 'model.rb'
 def cleanDB
   User.all.map(&:delete)
   Advert.all.map(&:delete)
-  AdvertView.all.map(&:delete)
   UserView.all.map(&:delete)
   Category.all.map(&:delete)
   Image.all.map(&:delete)
