@@ -8,4 +8,4 @@
 6) Контроллеры - с использованием Sinatra
 7) CSS? - MaterializeCSS || PureCSS || ?
 8) Нужна модель страниц!
-9) Необходим slug-генератор
+9) Необходим slug-генератор - https://github.com/rsl/stringex/tree/master
