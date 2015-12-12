@@ -35,6 +35,12 @@ describe Page, "page model" do
     page.active?.must_be :==, false
     page.login_only?.must_be :==, false
   end
+  
+  it "#test slug with default title" do
+    page.save
+    page.slug.must_include "new-page"
+    page.slug.must_match /\d{10}/
+  end
 
 
 
