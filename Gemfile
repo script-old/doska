@@ -6,4 +6,5 @@ gem 'mongo_mapper_tree', :git => 'https://github.com/Oktavilla/mongo_mapper_tree
 gem 'stringex' #slug from title generator
 gem 'pony' #mail sender
 gem 'dotenv'
+gem 'minitest'
 gem 'pry'
