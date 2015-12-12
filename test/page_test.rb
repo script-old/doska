@@ -11,7 +11,7 @@ describe Page, "page model" do
   let(:title) {"first title"}
   
   it "#empty test" do
-    page.title.must_be_nil
+    page.title.wont_be_nil
   end
   
   it "#making new title" do
@@ -25,6 +25,10 @@ describe Page, "page model" do
     page.save
     page.slug.wont_be_nil
     page.slug.to_s.must_equal title.to_url.to_s
+  end
+  
+  it "#test default title" do
+    page.title.to_s.must_equal "New Page"
   end
 
 
