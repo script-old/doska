@@ -7,4 +7,5 @@ gem 'stringex' #slug from title generator
 gem 'pony' #mail sender
 gem 'dotenv'
 gem 'minitest'
+gem 'rake'
 gem 'pry'
