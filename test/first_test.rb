@@ -2,7 +2,7 @@ require_relative "spec_helper.rb"
 
 describe Page, "page model" do
   before do
-    puts Time.now
+    #puts Time.now
   end 
   after do 
     Page.delete_all
@@ -18,6 +18,13 @@ describe Page, "page model" do
     page.title = title
     page.title.must_be_kind_of String
     page.title.to_s.must_equal title.to_s
+  end
+  
+  it "#making slug after save" do
+    page.title = title
+    page.save
+    page.slug.wont_be_nil
+    page.slug.to_s.must_equal title.to_url.to_s
   end
 
 
