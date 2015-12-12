@@ -10,3 +10,5 @@
 8) Нужна модель страниц!
 9) Необходим slug-генератор - https://github.com/rsl/stringex/tree/master
 10) Отправка почты будет через Pony
+11) Капча
+12) Приватные данные - ruby dotenv
