@@ -6,7 +6,8 @@ class Page
   key :title, String, :default => "New Page"
   key :slug, String
   key :body, String
-  key :login_only, Boolean
+  key :login_only, Boolean, :default => false
+  key :active, Boolean, :default => false
   timestamps!
   
   private

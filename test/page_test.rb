@@ -10,7 +10,7 @@ describe Page, "page model" do
   let(:page) {Page.new}
   let(:title) {"first title"}
   
-  it "#empty test" do
+  it "#not empty title" do
     page.title.wont_be_nil
   end
   
@@ -29,6 +29,11 @@ describe Page, "page model" do
   
   it "#test default title" do
     page.title.to_s.must_equal "New Page"
+  end
+  
+  it "#test default states" do
+    page.active?.must_be :==, false
+    page.login_only?.must_be :==, false
   end
 
 
