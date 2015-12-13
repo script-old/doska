@@ -10,6 +10,11 @@ class Page
   key :active, Boolean, :default => false
   timestamps!
   
+  ########scopes########
+  scope :active, where(:active => true)
+  
+  ######################
+  
   private
   def make_slug 
     if title == "New Page" #ugly!

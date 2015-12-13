@@ -1,5 +1,6 @@
 require 'sinatra'
 
+Dir["./controllers/*.rb"].each {|file| require file }
 get '/' do
 
 end
@@ -23,14 +24,6 @@ post '/register/?' do
 
 end
 
-get '/pages/:slug' do |slug|
-  #@page = Page.find(:slug => slug)
-  #if @page
-    #render page
-  #else
-    #render error 404
-  #end
-end
 
 get '/category/:url' do |url|
   #@cat = Category.find(:url => url)
