@@ -13,15 +13,21 @@ describe User do
     user.new?.must_be :==, true
   end
   it "#make uniq uuid for activation" do
-    user.save
+    user.phone 
+    user.save(:validate => false)
     user.activate_url.wont_be_nil
   end
   it "#check phone if present" do
-    user.valid?.must_be :==, true #если телефон не представлен - все хорошо
+    user.valid?.must_be :==, false #если телефон и ящик не представлен - нет котнактов
     user.phone = 7912
     user.valid?.must_be :==, false #телефон не подходит
     user.phone = phone
     user.valid?.must_be :==, true #телефон есть и он проходит проверку
+    user.phone = ""
+    user.email = email
+    user.valid?.must_be :==, true #email есть и он проходит проверку
+    user.phone = phone
+    user.valid?.must_be :==, true #email и телефон есть и они проходят проверку
   end
 
 end

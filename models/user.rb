@@ -6,7 +6,7 @@ class User
   key :first_name, String
   key :last_name, String
   key :email, String#, :unique => true
-  key :phone, Integer#, :format => /(7|8)9\d{9}/ #не дает сохранить пользователя без обязательного ввода. Это плохо
+  key :phone, String#, :format => /(7|8)9\d{9}/ #не дает сохранить пользователя без обязательного ввода. Это плохо
   key :bio, String
   key :password, String
   key :active, Boolean
@@ -19,12 +19,29 @@ class User
   many :user_views
   ###########validations############
   validate :phone_validation
+  validate :email_validation
+  validate :contact_validation
 
   def phone_validation
     if !phone.blank?
-      if /(7|8)9\d{9}/ !~ phone.to_s
+      if /(7|8)9\d{9}/ !~ phone
         errors.add( :phone, "Номер телефона неправильный")
       end
+    end
+  end
+  
+  def email_validation
+    if !email.blank?
+      if /^(\S+@\S+[.]\S+)$/ !~ email
+        errors.add( :email, "Неправильный адрес E-mail")
+      end
+    end
+  end
+  
+  def contact_validation
+    if phone.blank? && email.blank?
+      errors.add( :email, "Заполните поле телефон или email для связи")
+      errors.add( :phone, "Заполните поле телефон или email для связи")    
     end
   end
   
@@ -36,6 +53,7 @@ class User
   def generate_uniq_url
     self.activate_url = SecureRandom.uuid + "-" + SecureRandom.hex(4)
   end
+  
   def send_new_email
     puts "User #{first_name} created" #Заглушка. 
   end
