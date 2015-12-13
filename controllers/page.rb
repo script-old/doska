@@ -1,5 +1,5 @@
 get '/pages/:page_slug/?' do
-  @page = Page.where(:slug => page_slug.to_s, :active => true)#Надо подумать обезопасном методе
+  @page = Page.first(:slug => page_slug.to_s, :active => true)#Надо подумать обезопасном методе
   if @page
     erb :page
   else
